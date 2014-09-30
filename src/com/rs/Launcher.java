@@ -46,12 +46,13 @@ public final class Launcher {
 
 	public static void main(String[] args) throws Exception {
 		if (args.length < 4) {
-			System.out.println("USE: guimode(boolean) debug(boolean) hosted(boolean) f2p(boolean)" );
+			System.out.println("USE: guimode(boolean) debug(boolean) hosted(boolean) f2p(boolean) economy(boolean)");
 		    return;
 		}
 		Settings.DEBUG = Boolean.parseBoolean(args[1]);
 		Settings.HOSTED = Boolean.parseBoolean(args[2]);		
 		Settings.FREEGAME = Boolean.parseBoolean(args[3]);
+		Settings.ECONOMY = Boolean.parseBoolean(args[4]);
 		long currentTime = Utils.currentTimeMillis();
 		if (Settings.HOSTED) {
 			// System.setErr(new PrintStream(new
