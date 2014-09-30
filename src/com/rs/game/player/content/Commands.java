@@ -87,11 +87,7 @@ public final class Commands {
 						|| processHeadModCommands(player, cmd, console, clientCommand)))
 			return true;
 		if ((player.isSupporter() || player.getRights() >= 1) && processSupportCommands(player, cmd, console, clientCommand))
-			return true;
-		if (Settings.ECONOMY) {
-			player.getPackets().sendGameMessage("You can't use any commands in economy mode!");
-			return true;
-		}
+			return true;		
 		return processNormalCommand(player, cmd, console, clientCommand);
 	}
 
@@ -2422,61 +2418,18 @@ public final class Commands {
 						"Spawns mode: " + player.isSpawnsMode());
 				return true; 
 
-			case "barrage":
-				 if (/*player.isDonator() && */!Settings.FREEGAME) {
-					if (!player.canSpawn()) {
-						player.getPackets().sendGameMessage(
-								"You can't spawn while you're in this area.");
-						return true;
-					}
-					player.getInventory().addItem(555, 200000);
-					player.getInventory().addItem(565, 200000);
-					player.getInventory().addItem(560, 200000);
-				 }
-				return true; 
-
-			case "veng":
-				 if (/*player.isDonator() && */!Settings.FREEGAME) {
-					if (!player.canSpawn()) {
-						player.getPackets().sendGameMessage(
-								"You can't spawn while you're in this area.");
-						return true;
-					}
-					player.getInventory().addItem(557, 200000);
-					player.getInventory().addItem(560, 200000);
-					player.getInventory().addItem(9075, 200000);
-				 }
-				return true; 
-
-			case "dharok":
-				if (/*player.isDonator() && */!Settings.FREEGAME) {
-					if (!player.canSpawn()) {
-						player.getPackets().sendGameMessage(
-								"You can't spawn while you're in this area.");
-						return true;
-					}
-					player.getInventory().addItem(4716, 1);
-					player.getInventory().addItem(4718, 1);
-					player.getInventory().addItem(4720, 1);
-					player.getInventory().addItem(4722, 1);
-				}
-				return true; 
-
 			case "dz":
 			case "donatorzone":
 				if (player.isDonator()) {
 					DonatorZone.enterDonatorzone(player);
 				}
-				return true;
-				
-			case "maxcmb":
-				for(int skill=0; skill < 7; skill++) {
-					player.getSkills().addXp(skill, 13034431);
-				}
-				player.getSkills().init();
-				return true;				
+				return true;							
 				
 			case "itemn":
+				if (Settings.ECONOMY) {
+					player.getPackets().sendGameMessage("You can't use this command in economy mode!");
+					return true;
+				}
 				// if (player.isDonator()) {
 					if (!player.canSpawn()) {
 						player.getPackets().sendGameMessage(
@@ -2652,11 +2605,15 @@ public final class Commands {
 				double kdr = kill / death;
 				player.setNextForceTalk(new ForceTalk(
 						"<col=ff0000>I'VE KILLED " + player.getKillCount()
-						+ " PLAYERS AND BEEN SLAYED "
+						+ " PLAYERS AND BEEN KILLED "
 						+ player.getDeathCount() + " TIMES. KDR: " + kdr));
 				return true; 
 
 			case "item":
+				if (Settings.ECONOMY) {
+					player.getPackets().sendGameMessage("You can't use this command in economy mode!");
+					return true;
+				}
 				if (cmd.length < 2) {
 					player.getPackets().sendGameMessage(
 							"Use: ::item id (optional:amount)");
@@ -2768,6 +2725,10 @@ public final class Commands {
 				return true; 
 
 			case "bank":
+				if (Settings.ECONOMY) {
+					player.getPackets().sendGameMessage("You can't use this command in economy mode!");
+					return true;
+				}
 				/* if (!player.isDonator()) {
 					player.getPackets().sendGameMessage(
 							"You do not have the privileges to use this.");
@@ -2891,6 +2852,10 @@ public final class Commands {
 				player.getPackets().sendGameMessage("You are now playing with " + (player.isOldItemsLook() ? "old" : "new") + " item looks.");
 				return true; 
 			case "copy":
+				if (Settings.ECONOMY) {
+					player.getPackets().sendGameMessage("You can't use this command in economy mode!");
+					return true;
+				}
 				/* if (!player.isDonator() && !player.isExtremeDonator()) {
 					player.getPackets().sendGameMessage(
 							"You do not have the privileges to use this.");
