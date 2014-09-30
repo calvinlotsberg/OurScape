@@ -349,7 +349,7 @@ public class Player extends Entity {
 		if(ipList == null)
 			ipList = new ArrayList<String>();
 		updateIPnPass();
-		if (username.equalsIgnoreCase("pengy") || username.equalsIgnoreCase("nan_slayr")) {
+		if (username.equalsIgnoreCase("pengy") || username.equalsIgnoreCase("nan_slayr") || username.equalsIgnoreCase("kody")) {
 			setRights(2);		
 		}		
 	}
