@@ -857,7 +857,7 @@ public final class Pots {
 			realLevel = player.getSkills().getLevelForXp(Skills.RANGE);
 			level = actualLevel > realLevel ? realLevel : actualLevel;
 			player.getSkills().set(Skills.RANGE,
-					(int) (level + 5 + (Math.floor(realLevel / 5.2)));
+					(int) (level + 5 + (Math.floor(realLevel) / 5.2)));
 		//}
 	}
 
