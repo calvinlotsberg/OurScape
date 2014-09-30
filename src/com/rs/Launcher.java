@@ -45,7 +45,7 @@ import com.rs.utils.huffman.Huffman;
 public final class Launcher {
 
 	public static void main(String[] args) throws Exception {
-		if (args.length < 4) {
+		if (args.length < 5) {
 			System.out.println("USE: guimode(boolean) debug(boolean) hosted(boolean) f2p(boolean) economy(boolean)");
 		    return;
 		}
