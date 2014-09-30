@@ -165,7 +165,7 @@ public class NPC extends Entity implements Serializable {
 			setName("<col=FF66FF><shad=IM88A>Monster Teleports");
 		if (id == 6361)
 			setName("<col=FFCC00><shad=IM88A>Minigame Teleports");
-		if (!combat.process()) { // if not under combat
+		if (!combat.process()) { // if not under combat	
 		//makeover mage
 		if(id == 2676)
 			setRandomWalk(false); 
