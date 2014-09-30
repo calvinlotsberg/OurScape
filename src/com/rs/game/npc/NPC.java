@@ -264,7 +264,7 @@ public class NPC extends Entity implements Serializable {
 		final NPC target = this;
 		if (hit.getDamage() > 0)
 			World.sendProjectile(user, this, 2263, 11, 11, 20, 5, 0, 0);
-		user.heal(hit.getDamage() / 3);
+		user.heal(hit.getDamage() / 5);
 		WorldTasksManager.schedule(new WorldTask() {
 			@Override
 			public void run() {
