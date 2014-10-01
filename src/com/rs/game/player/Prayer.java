@@ -54,7 +54,7 @@ public class Prayer implements Serializable {
 	private final static double[][] prayerDrainRate = {
 		{ 1.2, 1.2, 1.2, 1.2, 1.2, 0.6, 0.6, 0.6, 3.6, 1.8, 1.8, 0.6, 0.6, 0.3,
 			0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 1.2, 0.6, 0.18,
-			0.18, 0.2, 0.15, 0.2, 0.18 },
+			0.18, 0.24, 0.15, 0.2, 0.18 },
 			{ 1.8, 0.24, 0.24, 0.24, 0.24, 1.8, 0.3, 0.3, 0.3, 0.3, 0.36, 0.36,
 				0.36, 0.36, 0.36, 0.36, 0.36, 1.2, 0.2, 0.2 } };
 
@@ -81,7 +81,7 @@ public class Prayer implements Serializable {
 		else if (usingPrayer(0, 29))
 			value += 0.25;
 		else if (usingPrayer(1, 12)) {
-			double d = (15 + leechBonuses[9]);
+			double d = (10 + leechBonuses[9]);
 			value += d / 100;
 		}
 		return value;
@@ -98,7 +98,7 @@ public class Prayer implements Serializable {
 		else if (usingPrayer(0, 28))
 			value += 0.25;
 		else if (usingPrayer(1, 11)) {
-			double d = (15 + leechBonuses[8]);
+			double d = (10 + leechBonuses[8]);
 			value += d / 100;
 		}
 		return value;
@@ -117,7 +117,7 @@ public class Prayer implements Serializable {
 		else if (usingPrayer(0, 27))
 			value += 0.25;
 		else if (usingPrayer(1, 10)) {
-			double d = (15 + leechBonuses[5]);
+			double d = (10 + leechBonuses[5]);
 			value += d / 100;
 		}
 		else if (usingPrayer(1, 19)) {
@@ -140,7 +140,7 @@ public class Prayer implements Serializable {
 		else if (usingPrayer(0, 27))
 			value += 0.25;
 		else if (usingPrayer(1, 14)) {
-			double d = (15 + leechBonuses[7]);
+			double d = (10 + leechBonuses[7]);
 			value += d / 100;
 		}
 		else if (usingPrayer(1, 19)) {
@@ -167,7 +167,7 @@ public class Prayer implements Serializable {
 		else if (usingPrayer(0, 29))
 			value += 0.25;
 		else if (usingPrayer(1, 13)) {
-			double d = (15 + leechBonuses[6]);
+			double d = (10 + leechBonuses[6]);
 			value += d / 100;
 		}
 		else if (usingPrayer(1, 19)) {

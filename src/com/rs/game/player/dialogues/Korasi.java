@@ -15,11 +15,11 @@ public class Korasi extends Dialogue {
 
 	@Override
 	public void start() {
-		if (Settings.ECONOMY) {
+		/*if (Settings.ECONOMY) {
 			player.getPackets().sendGameMessage("The Master of Minigame Teleports is in no mood to talk to you.");
 			end();
 			return;
-		}
+		}*/
 		npcId = (Integer) parameters[0];
 		sendEntityDialogue(SEND_2_TEXT_CHAT, new String[] { NPCDefinitions.getNPCDefinitions(npcId).name, "Hello, I can teleport you to any minigame, would you like to go somewhere?" }, IS_NPC, npcId, 9827);
 	}
@@ -58,9 +58,10 @@ public class Korasi extends Dialogue {
 				Magic.sendNormalTeleportSpell(player, 0, 0, FightKiln.OUTSIDE);
 			else if (componentId == OPTION_4) 
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(2993, 9679, 0));
-			else if (componentId == OPTION_5)
+			else if (componentId == OPTION_5){
 				stage = 4;
 				sendOptionsDialogue("Where would you like to go?", "Barrows", "More Options");
+			}
 		} else if (stage == 4) {
 			if (componentId == OPTION_1) {
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(3565, 3289, 0));

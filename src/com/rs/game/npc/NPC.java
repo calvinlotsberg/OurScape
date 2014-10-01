@@ -162,17 +162,27 @@ public class NPC extends Entity implements Serializable {
 		if (id == 3709)
 			setName("<col=262EF0><shad=IM88A>Pking Teleports");
 		if (id == 13280)
-			setName("<col=FF66FF><shad=IM88A>Bossing Teleports");
+			setName("<col=FF66FF><shad=IM88A>Monster Teleports");
 		if (id == 6361)
 			setName("<col=FFCC00><shad=IM88A>Minigame Teleports");
-		if (!combat.process()) { // if not under combat
+		if (!combat.process()) { // if not under combat	
+		//makeover mage
 		if(id == 2676)
 			setRandomWalk(false); 
+		//MrEx
 		if(id == 2676)
 			setRandomWalk(false); 
+		//thok
 		if(id == 13280)
 			setRandomWalk(false); 
+		//korasi
 		if(id == 6361)
+			setRandomWalk(false); 
+		//thessalia
+		if(id == 548)
+			setRandomWalk(false); 
+		//hairdresser
+		if(id == 598)
 			setRandomWalk(false); 
 			if (!isForceWalking()) {// combat still processed for attack delay
 				// go down
@@ -264,7 +274,7 @@ public class NPC extends Entity implements Serializable {
 		final NPC target = this;
 		if (hit.getDamage() > 0)
 			World.sendProjectile(user, this, 2263, 11, 11, 20, 5, 0, 0);
-		user.heal(hit.getDamage() / 3);
+		user.heal(hit.getDamage() / 5);
 		WorldTasksManager.schedule(new WorldTask() {
 			@Override
 			public void run() {

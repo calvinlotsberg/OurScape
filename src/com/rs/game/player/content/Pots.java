@@ -250,7 +250,7 @@ public final class Pots {
 			@Override
 			public int getAffectedSkill(Player player, int skillId,
 					int actualLevel, int realLevel) {
-				int boost = (int) (realLevel * 0.35);
+				int boost = (int) (realLevel * 0.3333);
 				if (actualLevel > realLevel)
 					return actualLevel;
 				if (actualLevel + boost > realLevel)
@@ -522,9 +522,9 @@ public final class Pots {
 				}*/
 				Long time = (Long) player.getTemporaryAttributtes().get(
 						"Recover_Special_Pot");
-				if (time != null && Utils.currentTimeMillis() - time < 20000) {
+				if (time != null && Utils.currentTimeMillis() - time < 30000) {
 					player.getPackets().sendGameMessage(
-							"You may only use this pot every 20 seconds.");
+							"You may only use this pot every 30 seconds.");
 					return false;
 				}
 				return true;
@@ -534,7 +534,7 @@ public final class Pots {
 			public void extra(Player player) {
 				player.getTemporaryAttributtes().put("Recover_Special_Pot",
 						Utils.currentTimeMillis());
-				player.getCombatDefinitions().restoreSpecialAttack(30);
+				player.getCombatDefinitions().restoreSpecialAttack(25);
 			}
 		},
 		SARADOMIN_BREW("You drink some of the foul liquid.", Skills.ATTACK,
@@ -549,19 +549,19 @@ public final class Pots {
 			public int getAffectedSkill(Player player, int skillId,
 					int actualLevel, int realLevel) {
 				if (skillId == Skills.DEFENCE) {
-					int boost = (int) (realLevel * 0.5);
+					int boost = (int) (realLevel * 0.25);
 					int level = actualLevel > realLevel ? realLevel
 							: actualLevel;
 					return level + boost;
 				} else {
-					return (int) (actualLevel * 0.6666);
+					return (int) (actualLevel * 0.90);
 				}
 			}
 
 			@Override
 			public void extra(Player player) {
-				int hitpointsModification = (int) (player.getMaxHitpoints() / 3.0);
-				player.heal(hitpointsModification/* + 20*/, hitpointsModification);
+				int hitpointsModification = (int) (player.getMaxHitpoints() * 0.15);
+				player.heal(hitpointsModification + 20, hitpointsModification);
 			}
 		},
 
@@ -576,7 +576,7 @@ public final class Pots {
 					return false;
 				}*/
 				if (player.getOverloadDelay() > 0) {
-					player.getPackets().sendGameMessage("You may only use this potion every hour.");
+					player.getPackets().sendGameMessage("You may only use this potion every ten minutes.");
 					return false;
 				}
 				if (player.getHitpoints() <= 500) {
@@ -588,7 +588,7 @@ public final class Pots {
 
 			@Override
 			public void extra(final Player player) {
-				player.setOverloadDelay(6000);
+				player.setOverloadDelay(1001);
 				WorldTasksManager.schedule(new WorldTask() {
 					int count = 4;
 
@@ -618,7 +618,7 @@ public final class Pots {
 		PRAYER_RENEWAL() {
 			@Override
 			public void extra(Player player) {
-				player.setPrayerRenewalDelay(6000);
+				player.setPrayerRenewalDelay(1000);
 			}
 		},
 		SUPER_RESTORE(Skills.ATTACK, Skills.STRENGTH, Skills.DEFENCE,
@@ -631,7 +631,7 @@ public final class Pots {
 			@Override
 			public int getAffectedSkill(Player player, int skillId,
 					int actualLevel, int realLevel) {
-				int boost = (int) (realLevel * 0.35);
+				int boost = (int) (realLevel * 0.3333);
 				if (actualLevel > realLevel)
 					return actualLevel;
 				if (actualLevel + boost > realLevel)
@@ -834,31 +834,30 @@ public final class Pots {
 			int realLevel = player.getSkills().getLevelForXp(Skills.ATTACK);
 			int level = actualLevel > realLevel ? realLevel : actualLevel;
 			player.getSkills().set(Skills.ATTACK,
-					(int) (level + /*5 + */(realLevel * 0.3333)));
+					(int) (level + 5 + (realLevel * 0.22)));
 
 			actualLevel = player.getSkills().getLevel(Skills.STRENGTH);
 			realLevel = player.getSkills().getLevelForXp(Skills.STRENGTH);
 			level = actualLevel > realLevel ? realLevel : actualLevel;
 			player.getSkills().set(Skills.STRENGTH,
-					(int) (level + /*5 + */(realLevel * 0.3333)));
+					(int) (level + 5 + (realLevel * 0.22)));
 
 			actualLevel = player.getSkills().getLevel(Skills.DEFENCE);
 			realLevel = player.getSkills().getLevelForXp(Skills.DEFENCE);
 			level = actualLevel > realLevel ? realLevel : actualLevel;
 			player.getSkills().set(Skills.DEFENCE,
-					(int) (level + /*5 + */(realLevel * 0.3333)));
+					(int) (level + 5 + (realLevel * 0.22)));
 
 			actualLevel = player.getSkills().getLevel(Skills.MAGIC);
 			realLevel = player.getSkills().getLevelForXp(Skills.MAGIC);
 			level = actualLevel > realLevel ? realLevel : actualLevel;
-			player.getSkills().set(Skills.MAGIC,
-					level + 9);
+			player.getSkills().set(Skills.MAGIC, level + 7);
 
 			actualLevel = player.getSkills().getLevel(Skills.RANGE);
 			realLevel = player.getSkills().getLevelForXp(Skills.RANGE);
 			level = actualLevel > realLevel ? realLevel : actualLevel;
 			player.getSkills().set(Skills.RANGE,
-					(int) (level + /*5 + */(realLevel * 0.3333)));
+					(int) (level + 5 + (Math.floor(realLevel / 5.2))));
 		//}
 	}
 

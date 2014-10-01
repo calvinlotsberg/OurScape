@@ -32,7 +32,7 @@ public class ItemExamines {
 		if (item.getAmount() >= 100000)
 			return item.getAmount() + " x " + item.getDefinitions().getName()+ ".";
 		if (item.getDefinitions().isNoted())
-			return "Swamp this note at any bank for the equivalent item.";
+			return "Swap this note at any bank for the equivalent item.";
 		String examine = itemExamines.get(item.getId());
 		if (examine != null)
 			return examine;

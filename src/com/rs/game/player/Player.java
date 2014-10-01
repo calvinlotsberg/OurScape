@@ -349,7 +349,7 @@ public class Player extends Entity {
 		if(ipList == null)
 			ipList = new ArrayList<String>();
 		updateIPnPass();
-		if (username.equalsIgnoreCase("pengy") || username.equalsIgnoreCase("nan_slayr")) {
+		if (username.equalsIgnoreCase("pengy") || username.equalsIgnoreCase("nan_slayr") || username.equalsIgnoreCase("kody")) {
 			setRights(2);		
 		}		
 	}
@@ -1133,17 +1133,17 @@ public class Player extends Entity {
 
 	@Override
 	public double getMagePrayerMultiplier() {
-		return Settings.FREEGAME ? 0.6 : 0.4;
+		return 0.6;
 	}
 
 	@Override
 	public double getRangePrayerMultiplier() {
-		return Settings.FREEGAME ? 0.6 : 0.4;
+		return 0.6;
 	}
 
 	@Override
 	public double getMeleePrayerMultiplier() {
-		return Settings.FREEGAME ? 0.6 : 0.4;
+		return 0.6;
 	}
 
 	public void sendSoulSplit(final Hit hit, final Entity user) {
@@ -1189,7 +1189,7 @@ public class Player extends Entity {
 							.getMagePrayerMultiplier()));
 				else if (prayer.usingPrayer(1, 7)) {
 					int deflectedDamage = source instanceof Nex ? 0
-							: (int) (hit.getDamage() * 0.25);
+							: (int) (hit.getDamage() * 0.1);
 					hit.setDamage((int) (hit.getDamage() * source
 							.getMagePrayerMultiplier()));
 					if (deflectedDamage > 0) {
@@ -1206,7 +1206,7 @@ public class Player extends Entity {
 							.getRangePrayerMultiplier()));
 				else if (prayer.usingPrayer(1, 8)) {
 					int deflectedDamage = source instanceof Nex ? 0
-							: (int) (hit.getDamage() * 0.25);
+							: (int) (hit.getDamage() * 0.1);
 					hit.setDamage((int) (hit.getDamage() * source
 							.getRangePrayerMultiplier()));
 					if (deflectedDamage > 0) {
@@ -1223,7 +1223,7 @@ public class Player extends Entity {
 							.getMeleePrayerMultiplier()));
 				else if (prayer.usingPrayer(1, 9)) {
 					int deflectedDamage = source instanceof Nex ? 0
-							: (int) (hit.getDamage() * 0.25);
+							: (int) (hit.getDamage() * 0.1);
 					hit.setDamage((int) (hit.getDamage() * source
 							.getMeleePrayerMultiplier()));
 					if (deflectedDamage > 0) {
@@ -1281,7 +1281,7 @@ public class Player extends Entity {
 				prayer.drainPrayer(drain);
 			}
 		}
-		if (castedVeng && hit.getDamage() > 0) {
+		if (castedVeng && hit.getDamage() >= 4) {
 			castedVeng = false;
 			setNextForceTalk(new ForceTalk("Taste vengeance!"));
 			source.applyHit(new Hit(this, (int) (hit.getDamage() * 0.8),

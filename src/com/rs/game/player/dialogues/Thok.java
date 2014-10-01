@@ -15,11 +15,11 @@ public class Thok extends Dialogue {
 
 	@Override
 	public void start() {
-		if (Settings.ECONOMY) {
+		/*if (Settings.ECONOMY) {
 			player.getPackets().sendGameMessage("The Master of Bossing Teleports is in no mood to talk to you.");
 			end();
 			return;
-		}
+		}*/
 		npcId = (Integer) parameters[0];
 		sendEntityDialogue(SEND_2_TEXT_CHAT, new String[] { NPCDefinitions.getNPCDefinitions(npcId).name,"Hello, I can teleport you to any boss, would you like to go somewhere?" }, IS_NPC, npcId, 9827);
 	}

@@ -97,7 +97,7 @@ public class ItemConstants {
 	}
 
 	public static boolean canWear(Item item, Player player) {
-		/* if(player.getRights() == 2)
+		if(player.getRights() == 2)
 			return true;
 		if((item.getId() == 20769 || item.getId() == 20771)) {
 			if (item.getId() == 20771 && player.getDominionTower().getKilledBossesCount() < 100) {
@@ -143,7 +143,7 @@ public class ItemConstants {
 				player.getPackets().sendGameMessage("You need to have completed Nomad's Requiem miniquest to use this cape.");
 				return false;
 			}
-		} */		
+		} 		
 		return true;
 	}
 	public static boolean isTradeable(Item item) {
