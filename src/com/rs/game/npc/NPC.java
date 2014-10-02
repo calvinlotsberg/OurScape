@@ -157,14 +157,22 @@ public class NPC extends Entity implements Serializable {
 	public void processNPC() {
 		if (isDead() || locked)
 			return;
+		//mandrith
 		if (id == 6537)
 			setName("<col=FF000><shad=IM88A>Stat Editor");
+		//MrEx
 		if (id == 3709)
 			setName("<col=262EF0><shad=IM88A>Pking Teleports");
-		if (id == 13280)
-			setName("<col=FF66FF><shad=IM88A>Monster Teleports");
-		if (id == 6361)
+		//Thok
+		if (id == 13280) {
+			setName("<col=FF66FF><shad=IM88A>Boss Teleports");
+			setRandomWalk(false); 
+		}
+		//Korasi
+		if (id == 6361) {
 			setName("<col=FFCC00><shad=IM88A>Minigame Teleports");
+			setRandomWalk(false); 
+		}
 		if (!combat.process()) { // if not under combat	
 		//makeover mage
 		if(id == 2676)
@@ -172,12 +180,7 @@ public class NPC extends Entity implements Serializable {
 		//MrEx
 		if(id == 2676)
 			setRandomWalk(false); 
-		//thok
-		if(id == 13280)
-			setRandomWalk(false); 
-		//korasi
-		if(id == 6361)
-			setRandomWalk(false); 
+
 		//thessalia
 		if(id == 548)
 			setRandomWalk(false); 
