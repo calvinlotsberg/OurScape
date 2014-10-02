@@ -75,6 +75,9 @@ public class Player extends Entity {
 
 	private static final long serialVersionUID = 2011932556974180375L;
 	
+	//starter kit
+	public boolean starter = false;
+	
 	//points
 	public int credits = 0;
 
@@ -529,7 +532,7 @@ public class Player extends Entity {
 		while ((packet = logicPackets.poll()) != null)
 			WorldPacketsDecoder.decodeLogicPacket(this, packet);
 	}
-
+	
 	@Override
 	public void processEntity() {
 		processLogicPackets();
@@ -689,6 +692,23 @@ public class Player extends Entity {
 				donatorTill = 0;
 			}else
 				getPackets().sendGameMessage("Your donator rank expires " + getDonatorTill());
+		}
+		
+		//give starter pack
+		if (starter == false) {
+		getInventory().addItem(995, 10000000);
+		getInventory().addItem(1323, 1);
+		getInventory().addItem(1333, 1);
+		getInventory().addItem(4587, 1);
+		getInventory().addItem(1153, 1);
+		getInventory().addItem(1712, 1);
+		getInventory().addItem(1115, 1);
+		getInventory().addItem(1067, 1);
+		getInventory().addItem(841, 1);
+		getInventory().addItem(884, 2000);
+		getInventory().addItem(26778, 1);
+		getPackets().sendGameMessage("Enjoy your starter pack!");
+		starter = true;
 		}
 
 		sendDefaultPlayersOptions();
