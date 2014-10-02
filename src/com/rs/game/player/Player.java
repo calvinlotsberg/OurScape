@@ -79,7 +79,7 @@ public class Player extends Entity {
 	public boolean starter = false;
 	
 	//first login old items look
-	public boolean firstLoginItemsLook = false;
+	public boolean firstLoginItemsLook = true;
 	
 	//points
 	public int credits = 0;
@@ -697,8 +697,9 @@ public class Player extends Entity {
 				getPackets().sendGameMessage("Your donator rank expires " + getDonatorTill());
 		}
 		//set first login old items look
-		if (firstLoginItemsLook == false) {
+		if (firstLoginItemsLook == true) {
 			switchItemsLook();
+			firstLoginItemsLook = false;
 		}
 		//give starter pack
 		if (starter == false) {
