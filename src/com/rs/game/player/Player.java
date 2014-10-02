@@ -77,10 +77,7 @@ public class Player extends Entity {
 	
 	//starter kit
 	public boolean starter = false;
-	
-	//first login old items look
-	public boolean firstLoginItemsLook = true;
-	
+
 	//points
 	public int credits = 0;
 
@@ -696,13 +693,10 @@ public class Player extends Entity {
 			}else
 				getPackets().sendGameMessage("Your donator rank expires " + getDonatorTill());
 		}
-		//set first login old items look
-		if (firstLoginItemsLook == true) {
-			switchItemsLook();
-			firstLoginItemsLook = false;
-		}
-		//give starter pack
+		
+		//give starter pack and set old graphics
 		if (starter == false) {
+		switchItemsLook();
 		getInventory().addItem(995, 10000000);
 		getInventory().addItem(1323, 1);
 		getInventory().addItem(1333, 1);
