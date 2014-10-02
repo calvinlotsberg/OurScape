@@ -9,9 +9,9 @@ public final class Settings {
 	/**
 	 * General client and server settings.
 	 */
-	public static final String SERVER_NAME = "Redemption";
+	public static final String SERVER_NAME = "OurScape";
 	public static final int PORT_ID = 43594;
-	public static final String LASTEST_UPDATE = "Runespan and Runepoints are now available! Talk to  Minigame Teleports at spawn!";
+	public static final String LASTEST_UPDATE = "RuneSpan is now available!";
 	public static final String CACHE_PATH = "data/cache/";
 	public static final int RECEIVE_DATA_LIMIT = 7500;
 	public static final int PACKET_SIZE_LIMIT = 7500;
@@ -42,7 +42,7 @@ public final class Settings {
 	/**
 	 * Graphical User Interface settings
 	 */
-	public static final String GUI_SIGN = "Redemption GUI";
+	public static final String GUI_SIGN = "OurScape GUI";
 	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 	
 	/**
