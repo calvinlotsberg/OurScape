@@ -36,15 +36,15 @@ public class Korasi extends Dialogue {
 					"Clan Wars", "Castle Wars", "Dominion Tower", "More Options");
 			stage = 2;
 		} else if (stage == 2) {
-			if (componentId == OPTION_1)
+			if (componentId == OPTION_1){
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(3365, 3275, 0));
-			else if (componentId == OPTION_2)
+			}else if (componentId == OPTION_2){
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(2993, 9679, 0));
-			else if (componentId == OPTION_3)
+			}else if (componentId == OPTION_3){
 				Magic.sendNormalTeleportSpell(player, 0, 0, CastleWars.LOBBY);
-			else if (componentId == OPTION_4)
+			}else if (componentId == OPTION_4){
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(3366, 3083, 0));
-			else if (componentId == OPTION_5) {
+			}else if (componentId == OPTION_5) {
 				stage = 3;
 				sendOptionsDialogue("Where would you like to go?", "Fight Pits", "Fight Caves", "Fight Kiln", "Barrows", "More Options");
 			}
@@ -52,17 +52,18 @@ public class Korasi extends Dialogue {
 			if (componentId == OPTION_1) {
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(4608, 5061, 0));
 				player.getControlerManager().startControler("DuelControler");
-			} else if (componentId == OPTION_2)
+			} else if (componentId == OPTION_2){
 				Magic.sendNormalTeleportSpell(player, 0, 0, FightCaves.OUTSIDE);
-			else if (componentId == OPTION_3)
+			}else if (componentId == OPTION_3){
 				Magic.sendNormalTeleportSpell(player, 0, 0, FightKiln.OUTSIDE);
-			else if (componentId == OPTION_4) 
+			}else if (componentId == OPTION_4){
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(3565, 3289, 0));
-			else if (componentId == OPTION_5){
+			}else if (componentId == OPTION_5){
 				stage = 2;
 				sendOptionsDialogue("Where would you like to go?", "Duel Arena",
-					"Barrows", "Castle Wars", "Dominion Tower", "More Options");
+					"Clan Wars", "Castle Wars", "Dominion Tower", "More Options");
 			}
+		}
 	}
 
 	@Override
