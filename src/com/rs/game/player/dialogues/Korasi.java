@@ -65,12 +65,6 @@ public class Korasi extends Dialogue {
 			}
 	}
 
-	private void teleportPlayer(int x, int y, int z) {
-		player.setNextWorldTile(new WorldTile(x, y, z));
-		player.stopAll();
-		player.getControlerManager().startControler("GodWars");
-	}
-
 	@Override
 	public void finish() {
 
