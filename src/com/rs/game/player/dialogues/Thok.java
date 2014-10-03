@@ -64,7 +64,7 @@ public class Thok extends Dialogue {
 				stage = 4;
 				sendOptionsDialogue("Where would you like to go?", "Kalphite Queen", "Dagannoth kings", "More Options");
 			}
-		} } else if (stage == 4) {
+		} else if (stage == 4) {
 			if (componentId == OPTION_1) {
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(3508, 9493, 0));
 				player.getControlerManager().startControler("DuelControler");
