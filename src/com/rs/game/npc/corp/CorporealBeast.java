@@ -12,7 +12,7 @@ public class CorporealBeast extends NPC {
 	public CorporealBeast(int id, WorldTile tile, int mapAreaNameHash,
 			boolean canBeAttackFromOutOfArea, boolean spawned) {
 		super(id, tile, mapAreaNameHash, canBeAttackFromOutOfArea, spawned);
-		setCapDamage(1000);
+		setCapDamage(10000);
 		setLureDelay(3000);
 		setForceTargetDistance(64);
 		setForceFollowClose(true);
