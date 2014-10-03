@@ -42,7 +42,7 @@ public class Thok extends Dialogue {
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(2839, 5296, 2));
 				player.getControlerManager().startControler("GodWars");
 			} else if (componentId == OPTION_3) {
-				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(2907, 5265, 2));
+				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(2907, 5265, 0));
 				player.getControlerManager().startControler("GodWars");
 			} else if (componentId == OPTION_4) {
 				Magic.sendNormalTeleportSpell(player, 0, 0, new WorldTile(2925, 5331, 2));
