@@ -353,6 +353,17 @@ public final class Skills implements Serializable {
 			exp *= player.isExtremeDonator() ? Settings.XP_RATE + 2 : player.isDonator() ? Settings.XP_RATE + 1 : Settings.XP_RATE;
 		if (player.getAuraManager().usingWisdom())
 			exp *= 1.025;
+		if (skill == ATTACK || skill == DEFENCE || skill == STRENGTH || skill == RANGE || skill == MAGIC) {
+			exp *= 37*Settings.XP_RATE;
+		} 
+		else if (skill == HITPOINTS) {
+			exp *= 13*Settings.XP_RATE;
+		}
+		else if (skill == PRAYER || skill == SUMMONING || skill == HERBLORE) {
+			exp *= 3*Settings.XP_RATE;
+		}
+		/* else if (skill
+		*/
 		int oldLevel = getLevelForXp(skill);
 		xp[skill] += exp;
 		for(int i = 0; i < trackSkills.length; i++) {
